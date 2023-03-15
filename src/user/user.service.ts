@@ -6,6 +6,12 @@ import { User } from './interface/user.interface';
 export class UserService {
   private users: User[] = [];
   async createUser(user: CreateUserDTO): Promise<User> {
-    return { ...user, id: 1 };
+    const newUser = { ...user, id: this.users.length + 1 };
+    this.users.push(newUser);
+    return newUser;
+  }
+
+  async getAllUsers(): Promise<User[]> {
+    return this.users;
   }
 }
