@@ -3,7 +3,10 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { UserEntity } from './user/interface/user.entity';
-
+import { createTableUser1678941849551 as migrateUser } from './migration/1678941849551-create-table-user';
+import { createTableState1678944104732 as migrateState } from './migration/1678944104732-create-table-state';
+import { createTableCity1678944183972 as migrateCity } from './migration/1678944183972-create-table-city';
+import { createTableAdress1678944201592 as migrateAddress } from './migration/1678944201592-create-table-adress';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -18,6 +21,7 @@ import { UserEntity } from './user/interface/user.entity';
       username: 'postgres',
       synchronize: true,
       entities: [UserEntity],
+      migrations: [migrateUser, migrateState, migrateCity, migrateAddress],
     }),
     UserModule,
   ],
