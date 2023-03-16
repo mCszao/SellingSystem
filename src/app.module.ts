@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
+import { UserEntity } from './user/interface/user.entity';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { UserModule } from './user/user.module';
       port: 5432,
       username: 'postgres',
       synchronize: true,
-      entities: [`${__dirname}/**/*.entity{.js}`],
+      entities: [UserEntity],
     }),
     UserModule,
   ],
