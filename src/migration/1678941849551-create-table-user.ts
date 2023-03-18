@@ -2,17 +2,17 @@ import { MigrationInterface, QueryRunner } from 'typeorm';
 
 export class createTableUser1678941849551 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.query(`´
+    await queryRunner.query(`
             CREATE TABLE public.user (
                 id integer NOT NULL, 
-                name character varyng NOT NULL,
-                email character varyng NOT NULL,
-                cpf character varyng NOT NULL,
+                name character varying NOT NULL,
+                email character varying NOT NULL,
+                cpf character varying NOT NULL,
                 user_type int NOT NULL,
-                phone character varyng NOT NULL,
-                password character varyng NOT NULL,
-                created_at timestamp whithout zone DEFAULT now() NOT NULL,
-                updated_at timestamp whithout zone DEFAULT now() NOT NULL
+                phone character varying NOT NULL,
+                password character varying NOT NULL,
+                created_at timestamp without time zone DEFAULT now() NOT NULL,
+                updated_at timestamp without time zone DEFAULT now() NOT NULL,
                 primary key (id)
             );
 
@@ -20,11 +20,11 @@ export class createTableUser1678941849551 implements MigrationInterface {
             AS integer
             START WITH 1
             INCREMENT BY 1
-            NO MIXVALUE
+            NO MINVALUE
             NO MAXVALUE
             CACHE 1;
 
-            ALTER SEQUENCE public.user_id_seq ORDER BY public.user.id;
+            ALTER SEQUENCE public.user_id_seq OWNED BY public.user.id;
 
             ALTER TABLE ONLY public.user ALTER COLUMN id SET DEFAULT nextval('public.user_id_seq'::regclass);
         `);

@@ -6,9 +6,9 @@ export class createTableCity1678944183972 implements MigrationInterface {
             CREATE TABLE public.city (
                 id integer NOT NULL,
                 state_id integer NOT NULL,
-                name character varyng NOT NULL,
+                name character varying NOT NULL,
                 created_at timestamp without time zone DEFAULT now() NOT NULL,
-                updated_at timestam without time zone DEFAULT now() NOT NULL,
+                updated_at timestamp without time zone DEFAULT now() NOT NULL,
                 primary key (id)
                 foreign key (state_id) references public.state(id)
             );

@@ -5,11 +5,12 @@ export class createTableState1678944104732 implements MigrationInterface {
     await queryRunner.query(`
             CREATE TABLE public.state (
                 id integer NOT NULL,
-                name character varyng NOT NULL,
+                name character varying NOT NULL,
                 created_at timestamp without time zone DEFAULT now() NOT NULL,
                 updated_at timestamp without time zone DEFAULT now() NOT NULL,
                 primary key (id)
             );
+            
             CREATE SEQUENCE public.state_id_seq
             AS integer
             START WITH 1

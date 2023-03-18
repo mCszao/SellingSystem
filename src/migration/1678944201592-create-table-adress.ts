@@ -6,9 +6,9 @@ export class createTableAdress1678944201592 implements MigrationInterface {
             CREATE TABLE public.address (
                 id integer NOT NULL,
                 user_id integer NOT NULL,
-                complement character varyng,
+                complement character varying,
                 number integer NOT NULL,
-                cep character varyng NOT NULL,
+                cep character varying NOT NULL,
                 city_id integer NOT NULL,
                 created_at timestamp without time zone DEFAULT now() NOT NULL,
                 updated_at timestam without time zone DEFAULT now() NOT NULL,
